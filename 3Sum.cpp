@@ -1,7 +1,9 @@
 //308/312 cases passed 
+//TC - O(N^2)
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& v1) {
+        //vector<int>v1={-1,0,1,2,-1,-4};
         vector<vector<int>>v;
         vector<vector<int>>v2;
         vector<int>temp;
@@ -30,11 +32,14 @@ public:
                     temp.push_back(v1[a]);
                     temp.push_back(v1[b]);
                     temp.push_back(v1[j]);
-                    sort(temp.begin(),temp.end());
                     v2.push_back(temp);
                     temp={};
                 }
             }
+        }
+        for(int i=0;i<v2.size();i++)
+        {
+            sort(v2[i].begin(),v2[i].end());
         }
         for(int i=0;i<v2.size();i++)
         {
@@ -50,5 +55,5 @@ public:
             }
         }
         return v;
-    }      
+    }
 };
